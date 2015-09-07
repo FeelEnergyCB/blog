@@ -19,7 +19,13 @@ var gulp = require('gulp'),
 
   gulp.task('markdown', function () {
     return gulp.src('articles/src/**/*.md')
-    .pipe(md({preset: 'full'}))
+    .pipe(md({
+      preset: 'full',
+      remarkableOptions: {
+        html: true,
+        breaks: true
+      }
+      }))
     .on('error', function (err) {
       console.log(err.message.toUpperCase());
     })
