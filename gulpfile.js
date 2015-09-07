@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     less = require('gulp-less'),
     watch = require('gulp-watch'),
-    markdown = require('gulp-markdown'),
+    md = require('gulp-remarkable'),
     cheerio = require('gulp-cheerio'),
     file = require('gulp-file'),
     clean = require('gulp-clean'),
@@ -19,11 +19,11 @@ var gulp = require('gulp'),
 
   gulp.task('markdown', function () {
     return gulp.src('articles/src/**/*.md')
-        .pipe(markdown())
-        .on('error', function (err) {
-          console.log(err.message.toUpperCase());
-        })
-        .pipe(gulp.dest('articles/dist'));
+    .pipe(md({preset: 'full'}))
+    .on('error', function (err) {
+      console.log(err.message.toUpperCase());
+    })
+    .pipe(gulp.dest('articles/dist'));
   });
 
   gulp.task('sync', ['markdown'] , function () {
