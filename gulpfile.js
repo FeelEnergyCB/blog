@@ -18,7 +18,7 @@ var gulp = require('gulp'),
   });
 
   gulp.task('markdown', function () {
-    return gulp.src('articles/src/**/*.md')
+    return gulp.src('posts/src/**/*.md')
     .pipe(md({
       preset: 'full',
       remarkableOptions: {
@@ -29,11 +29,11 @@ var gulp = require('gulp'),
     .on('error', function (err) {
       console.log(err.message.toUpperCase());
     })
-    .pipe(gulp.dest('articles/dist'));
+    .pipe(gulp.dest('posts/dist'));
   });
 
   gulp.task('sync', ['markdown'] , function () {
-    return gulp.src(['articles/dist/*.html'])
+    return gulp.src(['posts/dist/*.html'])
       .pipe(cheerio(function ($, file) {
 
         time = $('time').text();
@@ -48,7 +48,7 @@ var gulp = require('gulp'),
 
         $('*').removeAttr('id');
       }))
-      .pipe(gulp.dest('articles/dist/'));
+      .pipe(gulp.dest('posts/dist/'));
   });
 
 
@@ -59,7 +59,7 @@ var gulp = require('gulp'),
   });
 
   gulp.task('clear', function () {
-    gulp.src('articles/dist/*.html', {read: false})
+    gulp.src('posts/dist/*.html', {read: false})
       .pipe(clean());
   });
 
@@ -67,6 +67,6 @@ var gulp = require('gulp'),
 
     gulp.watch('assets/less/**/*.less', ['less']);
 
-    gulp.watch('articles/src/**/*.md', ['json']);
+    gulp.watch('posts/src/**/*.md', ['json']);
 
   });
