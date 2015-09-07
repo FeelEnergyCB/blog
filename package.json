@@ -1,0 +1,15 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "angular": "^1.4.5",
+    "gulp": "^3.9.0",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-clean": "^0.3.1",
+    "gulp-file": "^0.2.0",
+    "gulp-less": "^3.0.3",
+    "gulp-markdown": "^1.0.0",
+    "gulp-watch": "^4.3.5"
+  }
+}
