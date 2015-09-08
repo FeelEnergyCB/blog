@@ -16,16 +16,19 @@
           });
         }
 
-        function parseDate(response) {
-          vm.postsList = response;
-          var years = {};
-          for (var i = vm.postsList.length - 1; i >= 0; i--) {
-            if ( !years[vm.postsList[i].year]) {
-              years[vm.postsList[i].year] = []
+        function parseDate(data) {
+          vm.postsList = {};
+          console.dir(data)
+          for (var i = data.length - 1; i >= 0; i--) {
+            if ( !vm.postsList[data[i].year]) {
+              vm.postsList[data[i].year] = {}
             }
-            years[vm.postsList[i].year].push(vm.postsList[i]);
+            if ( !vm.postsList[data[i].year][data[i].month]) {
+              vm.postsList[data[i].year][data[i].month] = []
+            }
+            vm.postsList[data[i].year][data[i].month].push(data[i]);
           }
-          console.log(years)
+          console.dir(vm.postsList)
         }
     }
 })();

@@ -18,15 +18,23 @@
       </section> <!-- end page__main -->
       <aside class="page__aside">
         <ul class="posts">
-          <li class="posts__item post" ng-repeat="post in main.postsList">
-            <a href="#/{{post.path}}" class="post__link">
+          <li class="posts__item post" ng-repeat="(key, value) in main.postsList">
+            {{main.years = main.postsList[key]}}
+
+            <ul>
+              <li ng-repeat="(key, value) in main.a">
+                {{key}}
+              </li>
+            </ul>
+
+  <!--           <a href="#/{{post.path}}" class="post__link">
               <span class="post__title">{{post.header}}</span>
               <br>
               <span class="post__date">{{post.year}}</span>
               <span class="post__date">{{post.month}}</span>
               <span class="post__date">{{post.day}}</span>
               <br>
-            </a>
+            </a> -->
           </li>
         </ul>
       </aside> <!-- end page__aside -->
