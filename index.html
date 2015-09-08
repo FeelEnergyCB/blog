@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blog">
   <head>
     <meta charset="utf-8"/>
-    <title>Title</title>
+    <title>Блог</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
+  <body ng-controller="MainController as main">
     <header class="header">
       
     </header> <!-- end header -->
     <div class="page">
       <section class="page__main">
-        
+        <article class="article" ui-view>
+          
+        </article>
       </section> <!-- end page__main -->
       <aside class="page__aside">
-        
+        <ul class="posts">
+          <li class="posts__item post" ng-repeat="post in main.postsList">
+            <a href="#/{{post.path}}" class="post__link">
+              <span class="post__title">{{post.header}}</span>
+              <br>
+              <span class="post__date">{{post.year}}</span>
+              <span class="post__date">{{post.month}}</span>
+              <span class="post__date">{{post.day}}</span>
+              <br>
+            </a>
+          </li>
+        </ul>
       </aside> <!-- end page__aside -->
     </div> <!-- end page -->
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/build/angular-ui-router.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/controllers/main.controller.js"></script>
+    <script src="assets/js/services/posts.service.js"></script>
   </body>
 </html>

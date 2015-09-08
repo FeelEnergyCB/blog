@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     cheerio = require('gulp-cheerio'),
     file = require('gulp-file'),
     clean = require('gulp-clean'),
-    time, file, header,
+    webserver = require('gulp-webserver'),
+    date, file, header,
     json = [];
  
   gulp.task('less', function () {
@@ -36,14 +37,21 @@ var gulp = require('gulp'),
     return gulp.src(['posts/dist/*.html'])
       .pipe(cheerio(function ($, file) {
 
-        time = $('time').text();
+        date = new Date($('time').text());
         header = $('h1').text();
-        file = file.history[0].slice(file.history[0].lastIndexOf('/') + 1);
+        if ( file.history[0].lastIndexOf('/') < 0 ) {
+          path = file.history[0].slice(file.history[0].lastIndexOf('\\') + 1, -5);
+        } else {
+          path = file.history[0].slice(file.history[0].lastIndexOf('/') + 1, -5);
+        }
 
         json.push({
-          time: time,
+          date: date,
+          year: date.getFullYear(),
+          month: date.getMonth() + 1,
+          day: date.getDate(),
           header: header,
-          file: file
+          path: path
         });
 
         $('*').removeAttr('id');
@@ -63,7 +71,17 @@ var gulp = require('gulp'),
       .pipe(clean());
   });
 
-  gulp.task('default', function() {
+  gulp.task('webserver', function() {
+    gulp.src('.')
+      .pipe(webserver({
+        fallback: 'index.html',
+        livereload: true,
+        directoryListing: true,
+        open: true
+      }));
+  });
+
+  gulp.task('default', ['webserver'] , function() {
 
     gulp.watch('assets/less/**/*.less', ['less']);
 

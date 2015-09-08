@@ -1,0 +1,19 @@
+.header {
+  height: 100px;
+  background: #ccc;
+  margin-bottom: 20px;
+}
+.page {
+  display: table;
+  width: 100%;
+}
+.page__aside {
+  display: table-cell;
+  width: 30%;
+  background: #e5e5e5;
+  height: 300px;
+}
+.page__main {
+  display: table-cell;
+  width: 70%;
+}

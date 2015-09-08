@@ -1,4 +1,4 @@
-<time pubdate datetime="2012-12-26">2012-12-26</time>
+<time>2013-12-10</time>
 # Post 2
 
 - item1
