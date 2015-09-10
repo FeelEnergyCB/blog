@@ -1,21 +1,33 @@
+html {
+  font-family: Georgia, serif;
+  font-size: 110%; //137.5%;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  margin: 0;
+  height: 100%;
+}
 .header {
   height: 100px;
   background: #ccc;
   margin-bottom: 20px;
+  display: none;
 } // end header
 
 .page {
   display: table;
   width: 100%;
+  min-height: 100%;
   &__aside {
     display: table-cell;
     width: 30%;
     background: #e5e5e5;
-    height: 300px;
+    vertical-align: top;
   }
   &__main {
     display: table-cell;
     width: 70%;
+    vertical-align: top;
   }
 } // end page
 
@@ -63,3 +75,146 @@
     cursor: pointer;
   }
 } // end posts
+
+.article {
+  padding: 20px;
+  time {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #aaaaaa;
+    font-size: .85rem;
+    line-height: 1;
+    font-style: italic;
+  }
+
+  // h1 {
+  //   color: #262626;
+  //   font-family: "Enriqueta", serif;
+  //   font-size: 2.75rem;
+  //   line-height: 3rem;
+  //   margin: 0 0 1.875rem;
+  // }
+  // h2 {
+  //   color: #262626;
+  //   font-family: "Enriqueta", serif;
+  //   font-size: 2rem;
+  //   font-weight: normal;
+  //   line-height: 2.625rem;
+  //   margin: 0 0 1.5rem;
+  //   padding: .75rem 0 0;
+  // }
+  // h3 {
+  //   color: #c73036;
+  //   font-family: "Enriqueta", serif;
+  //   font-size: 1.125rem;
+  //   font-weight: bold;
+  //   line-height: 1.5rem;
+  //   margin: 0 0 1.5rem;
+  //   padding: .75rem 0 0;
+  //   text-transform: uppercase;
+  // }
+  // p {
+  //   color: #2f2f2f;
+  //   font-family: Georgia, serif;
+  //   font-size: 1rem;
+  //   line-height: 1.5rem;
+  //   margin: 0 0 1.5rem;
+  // }
+  // time {
+  //   color: #aaaaaa;
+  //   font-family: Georgia, serif;
+  //   font-size: .85rem;
+  //   font-style: italic;
+  //   line-height: 1;
+  // }
+  // a {
+  //   color: #c73036;
+  //   font-family: "Enriqueta", serif;
+  //   font-style: normal;
+  //   font-weight: bold;
+  //   text-decoration: none;
+  //   text-transform: uppercase;
+  // }
+
+  /*! Typebase.less v0.1.0 | MIT License */
+
+  /* Copy & Lists */
+  p {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  ul,
+  ol {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  ul li,
+  ol li {
+    line-height: 1.5rem;
+  }
+  ul ul,
+  ol ul,
+  ul ol,
+  ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  blockquote {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    /* Change heading typefaces here */
+    font-family: sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    line-height: 1.5rem;
+  }
+  h1 {
+    font-size: 4.242rem;
+    line-height: 4.5rem;
+    margin-top: 3rem;
+  }
+  h2 {
+    font-size: 2.828rem;
+    line-height: 3rem;
+    margin-top: 3rem;
+  }
+  h3 {
+    font-size: 1.414rem;
+  }
+  h4 {
+    font-size: 0.707rem;
+  }
+  h5 {
+    font-size: 0.4713333333333333rem;
+  }
+  h6 {
+    font-size: 0.3535rem;
+  }
+  /* Tables */
+  table {
+    margin-top: 1.5rem;
+    border-spacing: 0px;
+    border-collapse: collapse;
+  }
+  table td,
+  table th {
+    padding: 0;
+    line-height: 33px;
+  }
+  /* Code blocks */
+  code {
+    vertical-align: bottom;
+  }
+
+} // end article
