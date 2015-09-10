@@ -18,7 +18,6 @@
 
         function parseDate(data) {
           vm.postsList = {};
-          console.dir(data)
           for (var i = data.length - 1; i >= 0; i--) {
             if ( !vm.postsList[data[i].year]) {
               vm.postsList[data[i].year] = {}
@@ -28,7 +27,6 @@
             }
             vm.postsList[data[i].year][data[i].month].push(data[i]);
           }
-          console.dir(vm.postsList)
         }
     }
 })();

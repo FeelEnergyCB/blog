@@ -17,4 +17,49 @@
     display: table-cell;
     width: 70%;
   }
-} // end main
+} // end page
+
+.posts {
+  &__months,
+  &__list {
+    display: none;
+  }
+  &__years {
+    padding-right: 20px;
+    list-style: none;
+    &_active {
+      .posts__months {
+        display: block;
+      }
+    }
+    &_reverse {
+      display: inline-block;
+      transform: rotate(180deg);
+      transform-origin: 50%;
+      .posts__years-item {
+        transform: rotate(-180deg);
+        transform-origin: 50%;
+      }
+    }
+  }
+  &__months {
+    &_active {
+      .posts__list {
+        display: block;
+      }
+    }
+    &_reverse {
+      display: inline-block;
+      transform: rotate(180deg);
+      transform-origin: 50%;
+      .posts__months-item {
+        transform: rotate(-180deg);
+        transform-origin: 50%;
+      }
+    }
+  }
+  &__years-text,
+  &__months-text {
+    cursor: pointer;
+  }
+} // end posts

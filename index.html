@@ -17,26 +17,28 @@
         </article>
       </section> <!-- end page__main -->
       <aside class="page__aside">
-        <ul class="posts">
-          <li class="posts__item post" ng-repeat="(key, value) in main.postsList">
-            {{main.years = main.postsList[key]}}
+        <div class="posts">
+          <ul class="posts__years posts__years_reverse" reverse>
+            <li class="posts__years-item" ng-repeat="(key, value) in main.postsList" ng-if="main.months = main.postsList[key]">
+              <span class="posts__years-text" list>{{key}}</span>
 
-            <ul>
-              <li ng-repeat="(key, value) in main.a">
-                {{key}}
-              </li>
-            </ul>
+              <ul class="posts__months" reverse>
+                <li class="posts__months-item" ng-repeat="(key, value) in main.months" ng-if="main.posts = main.months[key]">
+                  <span class="posts__months-text" list>{{key}}</span>
 
-  <!--           <a href="#/{{post.path}}" class="post__link">
-              <span class="post__title">{{post.header}}</span>
-              <br>
-              <span class="post__date">{{post.year}}</span>
-              <span class="post__date">{{post.month}}</span>
-              <span class="post__date">{{post.day}}</span>
-              <br>
-            </a> -->
-          </li>
-        </ul>
+                  <ul class="posts__list" reverse>
+                    <li class="posts__list-item" ng-repeat="post in main.posts">
+                      <a class="posts__link" href="#/{{post.path}}">{{post.header}}</a>
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+
+            </li>
+          </ul>
+        </div>
+
       </aside> <!-- end page__aside -->
     </div> <!-- end page -->
     <script src="node_modules/angular/angular.min.js"></script>
@@ -44,5 +46,7 @@
     <script src="assets/js/app.js"></script>
     <script src="assets/js/controllers/main.controller.js"></script>
     <script src="assets/js/services/posts.service.js"></script>
+    <script src="assets/js/directives/list.directive.js"></script>
+    <script src="assets/js/directives/reverse.directive.js"></script>
   </body>
 </html>
