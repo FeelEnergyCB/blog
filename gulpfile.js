@@ -78,7 +78,7 @@ var remote = 'https://github.com/FeelEnergyCB/blog.git',
       }));
   });
 
-  gulp.task('add', function(){
+  gulp.task('add', ['json'], function(){
     return gulp.src('./')
       .pipe(git.add({args: '--all'}));
   });
