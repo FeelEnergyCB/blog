@@ -111,7 +111,12 @@ var remote = 'https://github.com/FeelEnergyCB/blog.git',
 
   });
 
-  gulp.task('publish', ['less', 'json', 'push'] , function() {
+  gulp.task('process', ['less', 'json'] , function() {
+
+  });
+
+
+  gulp.task('publish', ['process', 'push'] , function() {
 
   });
 
