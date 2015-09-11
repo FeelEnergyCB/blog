@@ -15,5 +15,10 @@
     "gulp-remarkable": "^1.1.2",
     "gulp-watch": "^4.3.5",
     "gulp-webserver": "^0.9.1"
-  }
+  },
+  "scripts" : {
+    "config" : "gulp config",
+    "preview" : "gulp preview",
+    "publish" : "gulp publish"
+    }
 }
