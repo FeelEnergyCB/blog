@@ -87,13 +87,12 @@ var remote = 'https://github.com/FeelEnergyCB/blog.git',
     return gulp.src('./')
       .pipe(git.commit('Update blog'))
       .on('error', function (err) {
-        console.log(err.message.toUpperCase());
       });
   });
 
   gulp.task('push', ['commit'], function(){
     git.push('origin', 'master', function (err) {
-      if (err) console.log(err);
+      if (err) git.push('origin', 'master', function(){});
     });
   });
 
