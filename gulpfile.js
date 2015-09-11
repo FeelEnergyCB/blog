@@ -1,17 +1,20 @@
-var gulp = require('gulp'),
+var remote = 'https://github.com/FeelEnergyCB/blog.git',
+    gulp = require('gulp'),
     less = require('gulp-less'),
     watch = require('gulp-watch'),
     md = require('gulp-remarkable'),
     cheerio = require('gulp-cheerio'),
     file = require('gulp-file'),
-    clean = require('gulp-clean'),
     webserver = require('gulp-webserver'),
+    minifyCSS = require('gulp-minify-css'),
+    git = require('gulp-git'),
     date, file, header,
     json = [];
  
   gulp.task('less', function () {
     gulp.src('assets/less/**/*.less')
       .pipe(less())
+      .pipe(minifyCSS())
       .on('error', function (err) {
         console.log(err.message.toUpperCase());
       })
@@ -19,7 +22,7 @@ var gulp = require('gulp'),
   });
 
   gulp.task('markdown', function () {
-    return gulp.src('posts/src/**/*.md')
+    return gulp.src('posts/text/**/*.md')
     .pipe(md({
       preset: 'full',
       remarkableOptions: {
@@ -30,11 +33,11 @@ var gulp = require('gulp'),
     .on('error', function (err) {
       console.log(err.message.toUpperCase());
     })
-    .pipe(gulp.dest('posts/dist'));
+    .pipe(gulp.dest('posts/html'));
   });
 
-  gulp.task('sync', ['markdown'] , function () {
-    return gulp.src(['posts/dist/*.html'])
+  gulp.task('compile', ['markdown'] , function () {
+    return gulp.src(['posts/html/*.html'])
       .pipe(cheerio(function ($, file) {
 
         date = new Date($('time').text());
@@ -56,19 +59,14 @@ var gulp = require('gulp'),
 
         $('*').removeAttr('id');
       }))
-      .pipe(gulp.dest('posts/dist/'));
+      .pipe(gulp.dest('posts/html/'));
   });
 
 
-  gulp.task('json', ['sync'] , function() {
+  gulp.task('json', ['compile'] , function() {
     file('data.json', JSON.stringify(json))
       .pipe(gulp.dest('assets/json'));
     json = [];
-  });
-
-  gulp.task('clear', function () {
-    gulp.src('posts/dist/*.html', {read: false})
-      .pipe(clean());
   });
 
   gulp.task('webserver', function() {
@@ -80,10 +78,41 @@ var gulp = require('gulp'),
       }));
   });
 
+  gulp.task('add', function(){
+    gulp.src('./')
+      .pipe(git.add({args: '--all'}));
+  });
+  gulp.task('commit', ['add'], function(){
+    gulp.src('./')
+      .pipe(git.commit('Update blog'));
+  });
+  gulp.task('push', ['commit'], function(){
+    git.push('origin', 'master', function (err) {
+      if (err) console.log(err);
+    });
+  });
+  gulp.task('addremote', ['json'], function(){
+  git.addRemote('origin', remote, function (err) {
+    if (err) console.log(err);
+  });
+});
+
+  gulp.task('preview', ['less', 'json', 'webserver'] , function() {
+
+    gulp.watch('assets/less/**/*.less', ['less']);
+
+    gulp.watch('posts/text/**/*.md', ['json']);
+
+  });
+
+  gulp.task('publish', ['less', 'json', 'push'] , function() {
+
+  });
+
   gulp.task('default', ['webserver'] , function() {
 
     gulp.watch('assets/less/**/*.less', ['less']);
 
-    gulp.watch('posts/src/**/*.md', ['json']);
+    gulp.watch('posts/text/**/*.md', ['json']);
 
   });

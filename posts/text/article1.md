@@ -1,4 +1,4 @@
-<time>2010-01-21</time>
+<time>2015-12-21</time>
 # Dillinger
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
