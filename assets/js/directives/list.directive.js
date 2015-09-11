@@ -23,7 +23,7 @@
         function link(scope, element, attrs) {
           element.on('click', function () {
             var parent = element.parent(),
-                activeClass = attrs.class.slice(0, -5) + '_active';
+                activeClass = attrs.class.slice(0, attrs.class.lastIndexOf('-')) + '_active';
             if (parent.hasClass(activeClass)) {
               parent.removeClass(activeClass);
             } else {

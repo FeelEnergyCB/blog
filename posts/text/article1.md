@@ -1,5 +1,5 @@
-<time>2015-12-21</time>
-# Dillinger
+<time>2015-11-09</time>
+# First Post
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
 
