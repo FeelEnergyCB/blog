@@ -92,7 +92,7 @@ var remote = 'https://github.com/FeelEnergyCB/blog.git',
 
   function rePush(err) {
     if (err) {
-      console.log(err);
+      console.dir(err);
       git.push('origin', 'master', function(err) { rePush(err) } );
     }
   }
