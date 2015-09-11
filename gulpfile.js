@@ -93,12 +93,12 @@ var remote = 'https://github.com/FeelEnergyCB/blog.git',
   function rePush(err) {
     if (err) {
       console.log(err);
-      git.push('origin', 'master', rePush(err));
+      git.push('origin', 'master', function(err) { rePush(err) } );
     }
   }
 
   gulp.task('push', ['commit'], function() {
-    git.push('origin', 'master', rePush(err));
+    git.push('origin', 'master', function(err) { rePush(err) });
   });
 
   gulp.task('addremote', function(){
