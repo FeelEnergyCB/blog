@@ -1,4 +1,4 @@
-<time>2010-05-21</time>
+<time>2010-01-21</time>
 # Dillinger
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
@@ -21,6 +21,8 @@ This text you see here is *actually* written in Markdown! To get a feel for Mark
 
 ### Version
 3.0.2
+
+![alt text](posts/images/fun.jpg "Logo Title Text 1")
 
 ### Tech
 

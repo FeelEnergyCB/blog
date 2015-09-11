@@ -6,41 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cousine&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   </head>
   <body ng-controller="MainController as main">
     <header class="header">
-      
+      <h2 class="header__text">
+        <a href="#" class="header__link">[ My stupid blog ]</a>
+      </h2>
     </header> <!-- end header -->
     <div class="page">
-      <section class="page__main">
-        <article class="article" ui-view>
-          
-        </article>
-      </section> <!-- end page__main -->
       <aside class="page__aside">
+  
         <div class="posts">
           <ul class="posts__years posts__years_reverse" reverse>
             <li class="posts__years-item" ng-repeat="(key, value) in main.postsList" ng-if="main.months = main.postsList[key]">
               <span class="posts__years-text" list>{{key}}</span>
-
-              <ul class="posts__months" reverse>
+              <ul class="posts__months posts__months_reverse" reverse>
                 <li class="posts__months-item" ng-repeat="(key, value) in main.months" ng-if="main.posts = main.months[key]">
-                  <span class="posts__months-text" list>{{key}}</span>
-
-                  <ul class="posts__list" reverse>
+                  <span class="posts__months-text" list>{{key | month}}</span>
+                  <ul class="posts__list posts__list_reverse" reverse>
                     <li class="posts__list-item" ng-repeat="post in main.posts">
                       <a class="posts__link" href="#/{{post.path}}">{{post.header}}</a>
                     </li>
                   </ul>
-
                 </li>
               </ul>
-
             </li>
           </ul>
         </div>
 
       </aside> <!-- end page__aside -->
+      <section class="page__main">
+        <article class="article" ui-view>
+          
+        </article>
+      </section> <!-- end page__main -->
     </div> <!-- end page -->
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-ui-router/build/angular-ui-router.min.js"></script>
@@ -49,5 +50,7 @@
     <script src="assets/js/services/posts.service.js"></script>
     <script src="assets/js/directives/list.directive.js"></script>
     <script src="assets/js/directives/reverse.directive.js"></script>
+    <script src="assets/js/directives/closeAside.directive.js"></script>
+    <script src="assets/js/filters/month.filter.js"></script>
   </body>
 </html>

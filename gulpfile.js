@@ -48,7 +48,7 @@ var gulp = require('gulp'),
         json.push({
           date: date,
           year: date.getFullYear(),
-          month: date.getMonth() + 1,
+          month: date.getMonth(),
           day: date.getDate(),
           header: header,
           path: path
@@ -74,7 +74,6 @@ var gulp = require('gulp'),
   gulp.task('webserver', function() {
     gulp.src('.')
       .pipe(webserver({
-        fallback: 'index.html',
         livereload: true,
         directoryListing: true,
         open: true
