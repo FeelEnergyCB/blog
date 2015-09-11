@@ -1,0 +1,78 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'd:\\side\\blog',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package.tgz not in flight; packing
+9 verbose tar pack [ 'C:\\Users\\lisovets.n\\AppData\\Roaming\\npm-cache\\blog\\1.0.0\\package.tgz',
+9 verbose tar pack   'd:\\side\\blog' ]
+10 verbose tarball C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package.tgz
+11 verbose folder d:\side\blog
+12 info prepublish blog@1.0.0
+13 verbose addLocalTarball adding from inside cache C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package.tgz
+14 silly cache afterAdd blog@1.0.0
+15 verbose afterAdd C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package\package.json not in flight; writing
+16 verbose afterAdd C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package\package.json written
+17 silly publish { name: 'blog',
+17 silly publish   version: '1.0.0',
+17 silly publish   description: '',
+17 silly publish   dependencies:
+17 silly publish    { angular: '^1.4.5',
+17 silly publish      'angular-ui-router': '^0.2.15',
+17 silly publish      gulp: '^3.9.0',
+17 silly publish      'gulp-cheerio': '^0.6.2',
+17 silly publish      'gulp-clean': '^0.3.1',
+17 silly publish      'gulp-file': '^0.2.0',
+17 silly publish      'gulp-git': '^1.4.0',
+17 silly publish      'gulp-less': '^3.0.3',
+17 silly publish      'gulp-minify-css': '^1.2.1',
+17 silly publish      'gulp-remarkable': '^1.1.2',
+17 silly publish      'gulp-watch': '^4.3.5',
+17 silly publish      'gulp-webserver': '^0.9.1' },
+17 silly publish   scripts:
+17 silly publish    { config: 'gulp config',
+17 silly publish      preview: 'gulp preview',
+17 silly publish      publish: 'gulp publish',
+17 silly publish      compile: 'gulp compile' },
+17 silly publish   gitHead: '08657089c52ea7efc84ea642350a6b5f8161d1fb',
+17 silly publish   readme: 'ERROR: No README data found!',
+17 silly publish   _id: 'blog@1.0.0',
+17 silly publish   _shasum: 'c644303da710ab8bb7b8732f2996157b3c997dc4',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name blog
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/blog
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading C:\Users\lisovets.n\AppData\Roaming\npm-cache\blog\1.0.0\package.tgz
+25 verbose stack Error: auth required for publishing
+25 verbose stack     at CachingRegistryClient.publish (c:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\publish.js:30:14)
+25 verbose stack     at c:\Program Files\nodejs\node_modules\npm\lib\publish.js:134:14
+25 verbose stack     at mapToRegistry (c:\Program Files\nodejs\node_modules\npm\lib\utils\map-to-registry.js:55:3)
+25 verbose stack     at publish_ (c:\Program Files\nodejs\node_modules\npm\lib\publish.js:104:3)
+25 verbose stack     at Array.<anonymous> (c:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+25 verbose stack     at LOOP (c:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+25 verbose stack     at LOOP (c:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:14:28)
+25 verbose stack     at chain (c:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+25 verbose stack     at c:\Program Files\nodejs\node_modules\npm\lib\publish.js:73:5
+25 verbose stack     at RES (c:\Program Files\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+26 verbose cwd d:\side\blog
+27 error Windows_NT 6.1.7601
+28 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+29 error node v0.12.7
+30 error npm  v2.11.3
+31 error code ENEEDAUTH
+32 error need auth auth required for publishing
+32 error need auth You need to authorize this machine using `npm adduser`
+33 verbose exit [ 1, true ]
