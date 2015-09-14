@@ -3,7 +3,6 @@
   angular
       .module('blog', ['ui.router'])
       .config(function($stateProvider, $urlRouterProvider) {
-
         $stateProvider
           .state('post', {
             url: "/:postPath",
