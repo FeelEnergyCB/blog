@@ -42,11 +42,11 @@
 
 ## Планы
 
-Исходники данной блог-платформы расположены в [этом](https://github.com/FeelEnergyCB/blogEngine) github репозитории с подробной инструкцией как ей пользоваться.
+Исходники данной блог-платформы расположены в [этом](https://github.com/FeelEnergyCB/MinimalistBlog) github репозитории с подробной инструкцией как ей пользоваться.
 В ближайших планах:
 
 - оптимизация и улучшение кода.
 - создание дополнительных тем для блога.
 - расширение функционала.
 
-Если у Вас есть какие-либо идеи, замечания или предложения, пишите мне на почту [mikita.lisavets@gmail.com](mailto:mikita.lisavets@gmail.com), либо в issues на [github](https://github.com/FeelEnergyCB/blogEngine/issues).
+Если у Вас есть какие-либо идеи, замечания или предложения, пишите мне на почту [mikita.lisavets@gmail.com](mailto:mikita.lisavets@gmail.com), либо в issues на [github](https://github.com/FeelEnergyCB/MinimalistBlog/issues).
