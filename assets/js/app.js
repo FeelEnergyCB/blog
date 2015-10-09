@@ -2,7 +2,8 @@
   'use strict';
   angular
       .module('blog', ['ui.router'])
-      .config(function($stateProvider, $urlRouterProvider) {
+      .config(function($locationProvider,$stateProvider, $urlRouterProvider) {
+        $locationProvider.html5Mode({ enabled: true, requireBase: true }).hashPrefix('!');
         $stateProvider
           .state('post', {
             url: "/:postPath",
