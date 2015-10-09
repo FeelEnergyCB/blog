@@ -34,7 +34,7 @@
           }
           vm.loaded = true;
           if (!vm.currentUrl) {
-            console.log(vm.currentUrl)
+            console.log($state.params.postPath)
             showFirstPost()
           }
         }
