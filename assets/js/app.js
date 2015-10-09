@@ -2,7 +2,7 @@
   'use strict';
   angular
       .module('blog', ['ui.router'])
-      .config(function($locationProvider,$stateProvider, $urlRouterProvider) {
+      .config(function($locationProvider, $stateProvider, $urlRouterProvider) {
         $stateProvider
           .state('post', {
             url: "/:postPath",
@@ -13,5 +13,6 @@
               }
             }
           });
+          $locationProvider.html5Mode(true);
       });
 })();
