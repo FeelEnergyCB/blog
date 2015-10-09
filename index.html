@@ -24,8 +24,7 @@
                   <span class="posts__months-text" list>{{key | month}}</span>
                   <ul class="posts__list posts__list_reverse" reverse>
                     <li class="posts__list-item" ng-repeat="post in main.posts | orderBy:'day'">
-                      <a class="posts__link" ui-sref-active="posts__link_active" ui-sref="post({ postPath: post.path })" >{{post.header}}</a>
-                      <!-- href="#/{{post.path}}"   -->
+                      <a class="posts__link" ui-sref-active="posts__link_active" href="#/{{post.path}}" ui-sref="post({ postPath: post.path })" >{{post.header}}</a>
                     </li>
                   </ul>
                 </li>
