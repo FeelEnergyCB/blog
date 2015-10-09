@@ -1,0 +1,20 @@
+<p><time>2014-02-20</time></p>
+<h1>White screen of death</h1>
+<h3>&#x420;&#x435;&#x448;&#x435;&#x43D;&#x438;&#x435; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43C;&#x44B; &#x441;&#x43E;&#x432;&#x43C;&#x435;&#x441;&#x442;&#x438;&#x43C;&#x43E;&#x441;&#x442;&#x438; selectivizr &#x438; @font-face &#x432; IE8</h3>
+<p>&#x415;&#x441;&#x442;&#x44C; &#x43F;&#x430;&#x440;&#x443; &#x440;&#x435;&#x448;&#x435;&#x43D;&#x438;&#x439; &#x43F;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43C;&#x44B; white screen of death &#x432; IE8 &#x43F;&#x440;&#x438; &#x437;&#x430;&#x433;&#x440;&#x443;&#x437;&#x43A;&#x435; &#x448;&#x440;&#x438;&#x444;&#x442;&#x43E;&#x432; @font-face</p>
+<ol>
+<li>&#x418;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x43E;&#x43F;&#x440;&#x435;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x438;&#x435; @font-face &#x432; html &#x432; &#x442;&#x435;&#x433;&#x435; &lt;style&gt;</li>
+<li>&#x41F;&#x43E;&#x434;&#x433;&#x440;&#x443;&#x436;&#x430;&#x442;&#x44C; &#x441;&#x43A;&#x440;&#x438;&#x43F;&#x442; <strong>selectivizr</strong> &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; <strong>modernizr.js</strong></li>
+</ol>
+<pre><code>$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  Modernizr.load([
+    {
+      test : Modernizr.borderradius,
+      <span class="hljs-comment">// borderradius &#x432;&#x437;&#x44F;&#x442; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x438;&#x43C;&#x435;&#x440;&#x430; &#x442;&#x43E;&#x433;&#x43E; &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x430;,</span>
+      <span class="hljs-comment">// &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x43E;&#x433;&#x43E; &#x43D;&#x435;&#x442; &#x432; &#x441;&#x442;&#x430;&#x440;&#x44B;&#x445; ie</span>
+      nope : [<span class="hljs-string">&apos;js/min/selectivizr.min.js&apos;</span>]
+      <span class="hljs-comment">// &#x442;&#x443;&#x442; &#x443;&#x43A;&#x430;&#x437;&#x44B;&#x432;&#x430;&#x435;&#x43C; &#x43F;&#x443;&#x442;&#x44C; &#x43A; selectivizr</span>
+    }
+  ]);
+});
+</code></pre>
