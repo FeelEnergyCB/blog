@@ -34,6 +34,7 @@
           }
           vm.loaded = true;
           if (!vm.currentUrl) {
+            console.log(vm.currentUrl)
             showFirstPost()
           }
         }
