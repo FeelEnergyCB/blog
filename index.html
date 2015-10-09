@@ -5,7 +5,6 @@
     <title>[ Blog ]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <base href="/">
   </head>
   <body ng-controller="MainController as main">
     <header class="header">
@@ -25,7 +24,8 @@
                   <span class="posts__months-text" list>{{key | month}}</span>
                   <ul class="posts__list posts__list_reverse" reverse>
                     <li class="posts__list-item" ng-repeat="post in main.posts | orderBy:'day'">
-                      <a class="posts__link" ui-sref-active="posts__link_active" href="#/{{post.path}}" ui-sref="post({ postPath: post.path })" >{{post.header}}</a>
+                      <a class="posts__link" ui-sref-active="posts__link_active" ui-sref="post({ postPath: post.path })" >{{post.header}}</a>
+                      <!-- href="#/{{post.path}}"   -->
                     </li>
                   </ul>
                 </li>
