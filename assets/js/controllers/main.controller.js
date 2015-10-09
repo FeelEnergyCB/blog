@@ -3,20 +3,21 @@
     angular
         .module('blog')
         .controller('MainController', MainController);
-    MainController.$inject = ['postsService', '$state', '$rootScope'];
+    MainController.$inject = ['postsService', '$state', '$rootScope', '$timeout'];
     /* @ngInject */
-    function MainController(postsService, $state, $rootScope) {
+    function MainController(postsService, $state, $rootScope, $timeout) {
         var vm = this;
         vm.loaded = false;
-        vm.currentUrl = $state.params.postPath;
         vm.postsList = {};
         activate();
         ////////////////
 
         function activate() {
+
           postsService.getPosts().then(function (response) {
             parseDate(response.data);
           });
+
           $rootScope.$on('$stateChangeSuccess', function() {
              document.body.scrollTop = document.documentElement.scrollTop = 0;
           });
@@ -33,10 +34,13 @@
             vm.postsList[data[i].year][data[i].month].push(data[i]);
           }
           vm.loaded = true;
-          if (!vm.currentUrl) {
-            console.log($state.params.postPath)
-            showFirstPost()
-          }
+
+          $timeout(function() {
+            vm.currentUrl = $state.params.postPath;
+            if (!vm.currentUrl) {
+              showFirstPost();
+            }
+          }, 0);
         }
 
         function showFirstPost() {

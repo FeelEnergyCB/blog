@@ -103,7 +103,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   });
 
   gulp.task('push', ['commit'], function() {
-    git.push('origin', 'maste function(err) { rePush(err) });
+    git.push('origin', 'gh-pages', function(err) { rePush(err) });
   });
 
   gulp.task('addremote', ['removeremote'], function(){
