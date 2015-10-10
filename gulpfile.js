@@ -85,12 +85,12 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
 
   gulp.task('concat', function() {
     return gulp.src('assets/js/app/**/*.js')
-      .pipe(concat('boundle.js'))
+      .pipe(concat('boundle.js', {newLine: ';'}))
       .pipe(gulp.dest('assets/js/'));
   });
 
   gulp.task('uglify', ['concat'], function() {
-    return gulp.src('assets/js/boundle.js')
+    gulp.src('assets/js/boundle.js')
       .pipe(uglify())
       .pipe(gulp.dest('assets/js/'));
   });
@@ -143,7 +143,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     gulp.watch('posts/text/**/*.md', ['json']);
   });
 
-  gulp.task('compile', ['less', 'json', 'uglify'] , function() {});
+  gulp.task('compile', ['less', 'json', 'concat'] , function() {});
 
   gulp.task('config', ['addremote'] , function() {});
 
