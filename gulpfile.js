@@ -8,6 +8,8 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     clean = require('gulp-clean'),
     webserver = require('gulp-webserver'),
     minifyCSS = require('gulp-minify-css'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
     git = require('gulp-git'),
     date, file, header,
     json = [];
@@ -81,6 +83,18 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     json = [];
   });
 
+  gulp.task('concat', function() {
+    gulp.src('assets/js/app/**/*.js')
+      .pipe(concat('boundle.js'))
+      .pipe(gulp.dest('assets/js/'));
+  });
+
+  gulp.task('uglify', function() {
+    gulp.src('assets/js/boundle.js')
+      .pipe(uglify('boundle.min.js'))
+      .pipe(gulp.dest('assets/js/'));
+  });
+
   gulp.task('webserver', function() {
     gulp.src('.')
       .pipe(webserver({
@@ -119,7 +133,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   });
 
 
-  gulp.task('preview', ['less', 'json', 'webserver'] , function() {
+  gulp.task('preview', ['compile', 'webserver'] , function() {
     gulp.watch('assets/less/**/*.less', ['less']);
     gulp.watch('posts/text/**/*.md', ['json']);
   });
@@ -129,7 +143,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     gulp.watch('posts/text/**/*.md', ['json']);
   });
 
-  gulp.task('compile', ['less', 'json'] , function() {});
+  gulp.task('compile', ['less', 'json', 'concat', 'uglify'] , function() {});
 
   gulp.task('config', ['addremote'] , function() {});
 
