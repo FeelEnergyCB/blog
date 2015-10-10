@@ -91,7 +91,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
 
   gulp.task('uglify', ['concat'], function() {
     gulp.src('assets/js/boundle.js')
-      .pipe(uglify('boundle.min.js'))
+      .pipe(uglify())
       .pipe(gulp.dest('assets/js/'));
   });
 
