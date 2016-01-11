@@ -98,6 +98,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   gulp.task('webserver', function() {
     gulp.src('.')
       .pipe(webserver({
+        port: 8888,
         livereload: true,
         directoryListing: true,
         open: true
