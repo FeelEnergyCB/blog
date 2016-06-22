@@ -129,6 +129,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     gulp.src('./')
       .pipe(git.commit('Update blog'))
       .on('error', function (err) {
+        console.log(err)
       });
   });
 
