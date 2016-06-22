@@ -6,44 +6,26 @@
     <meta name="Description" content="Blog about html, css and javascript">
     <meta name="Keywords" content="Web, HTML, HTML5, JavaScript, CSS, CSS3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/styles/css/style.css">
   </head>
   <body ng-controller="MainController as main">
     <header class="header">
-      <h2 class="header__text">
-        <a href="/" class="header__link">[ Me ]</a>
-      </h2>
-    </header> <!-- end header -->
+      <a href="/" class="header__link">About me</a>
+      <a href="#/" class="header__link">Posts</a>
+    </header>
     <div class="page">
-      <aside class="page__aside">
-
-        <div class="posts">
-          <ul class="posts__years posts__years_reverse" reverse>
-            <li class="posts__years-item" ng-repeat="(key, value) in main.postsList" ng-if="main.months = main.postsList[key]">
-              <span class="posts__years-text" list>{{key}}</span>
-              <ul class="posts__months posts__months_reverse" reverse>
-                <li class="posts__months-item" ng-repeat="(key, value) in main.months" ng-if="main.posts = main.months[key]">
-                  <span class="posts__months-text" list>{{key | month}}</span>
-                  <ul class="posts__list posts__list_reverse" reverse>
-                    <li class="posts__list-item" ng-repeat="post in main.posts | orderBy:'day'">
-                      <a class="posts__link" ui-sref-active="posts__link_active" href="#/{{post.path}}" ui-sref="post({ postPath: post.path })" >{{post.header}}</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-
-      </aside> <!-- end page__aside -->
       <section class="page__main">
         <article class="article" ui-view>
         </article>
       </section> <!-- end page__main -->
     </div> <!-- end page -->
+    <footer class="footer" ng-click="main.scrollTo()">
+      Up
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="assets/js/boundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="assets/scripts/js/boundle.js"></script>
     <!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter31493368 = new Ya.Metrika({ id:31493368, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><!-- /Yandex.Metrika counter -->
   </body>
 </html>

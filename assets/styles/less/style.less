@@ -1,27 +1,25 @@
 @font-face {
     font-family: "PTMono";
-    src: url("../fonts/ptmono/PTMonoRegular.eot");
-    src: url("../fonts/ptmono/PTMonoRegular.eot?#iefix")format("embedded-opentype"),
-    url("../fonts/ptmono/PTMonoRegular.woff") format("woff"),
-    url("../fonts/ptmono/PTMonoRegular.ttf") format("truetype");
+    src: url("../../fonts/ptmono/PTMonoRegular.eot");
+    src: url("../../fonts/ptmono/PTMonoRegular.eot?#iefix")format("embedded-opentype"),
+    url("../../fonts/ptmono/PTMonoRegular.woff") format("woff"),
+    url("../../fonts/ptmono/PTMonoRegular.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
 }
 
 html {
   font-family: 'PTMono', Georgia, serif;
-  font-size: 90%;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   height: 100%;
-  @media (min-width: 940px) {
-    font-size: 110%;
-  }
 }
 body {
   margin: 0;
   height: 100%;
   box-sizing: border-box;
-  color: #222;
+  color: #202020;
+  background: #fff;
   *, *:before, &:after {
     box-sizing: border-box;
   }
@@ -34,24 +32,41 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 60px;
   background: #f5f5f5;
   overflow: hidden;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  font-family: 'helvetica';
   &__link {
     color: #222;
     text-decoration: none;
-  }
-  &__text {
-    white-space: nowrap;
-    text-align: center;
-    margin: 0;
-    line-height: 100px;
-    font-size: 1.5rem;
-    font-weight: lighter;
-    font-family: 'helvetica';
-    @media (min-width: 940px) {
-      font-size: 2.5rem;
+    display: inline-block;
+    margin: 0 .5rem;
+    &:before,
+    &:after {
+      transition: .15s ease-in-out;
+      display: inline-block;
+    }
+    &:before {
+      content: '[';
+      margin-right: .25rem;
+    }
+    &:after {
+      content: ']';
+      margin-left: .25rem;
+    }
+    &:hover {
+      &:before {
+        transform: translateX(-.25rem);
+      }
+      &:after {
+        transform: translateX(.25rem);
+      }
     }
   }
 } // end header
@@ -59,7 +74,7 @@ a {
 .page {
   width: 100%;
   min-height: 100%;
-  padding-top: 100px;
+  padding-top: 80px;
   position: relative;
   &__aside {
     display: block;
@@ -78,124 +93,30 @@ a {
 
   &__main {
     width: 100%;
-    padding-right: 0;
-    @media (min-width: 940px) {
-      padding-right: 300px;
-    }
+    max-width: 980px;
+    margin: auto;
   }
 } // end page
 
-.posts {
-  padding: 20px;
-  width: 100%;
-  &__years,
-  &__months,
-  &__list {
-    width: 100%;
-  }
-  &__months,
-  &__list {
-    display: none;
-  }
-  &__years {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    &_active {
-      .posts__months {
-        display: block;
-      }
-    }
-    &_reverse {
-      display: inline-block;
-      transform: rotate(180deg);
-      transform-origin: 50%;
-      .posts__years-item {
-        transform: rotate(-180deg);
-        transform-origin: 50%;
-      }
-    }
-    &-item {
-      margin-top: 20px;
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-    &-text {
-      &:hover {
-        opacity: .8;
-      }
-    }
-  }
-  &__months {
-    padding: 5px 10px 10px;
-    margin: 0;
-    list-style: none;
-    &_active {
-      .posts__list {
-        display: block;
-      }
-    }
-    &_reverse {
-      transform: rotate(180deg);
-      transform-origin: 50%;
-      .posts__months-item {
-        transform: rotate(-180deg);
-        transform-origin: 50%;
-      }
-    }
-    &-item {
-      margin-top: 5px;
-    }
-    &-text {
-      &:hover {
-        opacity: .8;
-      }
-    }
-  }
-  &__years-text,
-  &__months-text {
-    cursor: pointer;
-  }
-  &__list {
-    padding: 10px 10px;
-    margin: 0;
-    list-style: none;
-    &_reverse {
-      transform: rotate(180deg);
-      transform-origin: 50%;
-      .posts__list-item {
-        transform: rotate(-180deg);
-        transform-origin: 50%;
-      }
-    }
-    &-item {
-      display: block;
-      margin-top: 5px;
-    }
-  }
-  &__link {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    &:hover {
-      text-decoration: none;
-    }
-    &_active {
-      text-decoration: none;
-      color: #00a;
-    }
-  }
-} // end posts
-
 .article {
-  padding: 20px;
+  padding: 20px 20px 40px;
   position: relative;
-  @media (min-width: 940px) {
-    padding: 20px 100px;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  &__item {
+    padding: 1.5rem 0 3.5rem;
+    border-bottom: 4px solid #f5f5f5;
+    position: relative;
+    margin: 2rem 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
   }
+
   time {
     position: absolute;
     top: 20px;
@@ -204,6 +125,12 @@ a {
     font-size: .85rem;
     line-height: 1;
     font-style: italic;
+    &:before {
+      content: '['
+    }
+    &:after {
+      content: ']'
+    }
   }
 
   /*! Typebase.less v0.1.0 | MIT License */
@@ -257,7 +184,10 @@ a {
   h1 {
     font-size: 4.242rem;
     line-height: 4.5rem;
-    margin-top: 3rem;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
   h2 {
     font-size: 2.828rem;
@@ -332,3 +262,34 @@ a {
   }
 
 } // end article
+
+.footer {
+  transition: .15s ease-in-out;
+  text-align: center;
+  height: 60px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:before,
+  &:after {
+    content: '↑';
+    transition: .15s ease-in-out;
+  }
+  &:before {
+    margin-right: .25rem;
+  }
+  &:after {
+    margin-left: .25rem;
+  }
+  &:hover {
+    &:before,
+    &:after {
+      transform: translateY(-.15rem);
+    }
+  }
+  &:hover {
+    background: #ededed;
+  }
+} // end comments

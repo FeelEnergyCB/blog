@@ -11,6 +11,7 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     git = require('gulp-git'),
+    lessAutoprefix = require('less-plugin-autoprefix'),
     date, file, header,
     json = [];
 
@@ -22,13 +23,15 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   }
 
   gulp.task('less', function () {
-    gulp.src('assets/less/**/*.less')
-      .pipe(less())
+    gulp.src('assets/styles/less/**/*.less')
+      .pipe(less({
+        plugins: [new lessAutoprefix({ browsers: ['last 4 versions'] })]
+      }))
       .pipe(minifyCSS())
       .on('error', function (err) {
         console.log(err.message.toUpperCase());
       })
-      .pipe(gulp.dest('assets/css/'));
+      .pipe(gulp.dest('assets/styles/css/'));
   });
 
   gulp.task('clear', function () {
@@ -51,12 +54,16 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
     .pipe(gulp.dest('posts/html'));
   });
 
+
+
   gulp.task('sync', ['markdown'] , function () {
     return gulp.src(['posts/html/*.html'])
       .pipe(cheerio(function ($, file) {
 
-        date = new Date($('time').text());
+        time = $('time').text();
+        id = +new Date(time);
         header = $('h1').text();
+        preview = $('h1').next().text() + '..';
         if ( file.history[0].lastIndexOf('/') < 0 ) {
           path = file.history[0].slice(file.history[0].lastIndexOf('\\') + 1, -5);
         } else {
@@ -64,12 +71,11 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
         }
 
         json.push({
-          date: date,
-          year: date.getFullYear(),
-          month: date.getMonth(),
-          day: date.getDate(),
+          id: id,
+          date: time,
           header: header,
-          path: path
+          path: path,
+          preview: preview
         });
 
         $('*').removeAttr('id');
@@ -78,21 +84,30 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   });
 
   gulp.task('json', ['sync'] , function() {
+    json.sort(function(a, b) {
+      if (a.id > b.id) {
+        return -1;
+      }
+      if (a.id < b.id) {
+        return 1;
+      }
+      return 0;
+    });
     file('data.json', JSON.stringify(json))
-      .pipe(gulp.dest('assets/json'));
+      .pipe(gulp.dest('assets/data'));
     json = [];
   });
 
   gulp.task('concat', function() {
-    return gulp.src('assets/js/app/**/*.js')
+    return gulp.src('assets/scripts/js/app/**/*.js')
       .pipe(concat('boundle.js', {newLine: ';'}))
-      .pipe(gulp.dest('assets/js/'));
+      .pipe(gulp.dest('assets/scripts/js/'));
   });
 
   gulp.task('uglify', ['concat'], function() {
-    gulp.src('assets/js/boundle.js')
+    gulp.src('assets/scripts/js/boundle.js')
       .pipe(uglify())
-      .pipe(gulp.dest('assets/js/'));
+      .pipe(gulp.dest('assets/scripts/js/'));
   });
 
   gulp.task('webserver', function() {
@@ -135,12 +150,14 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
 
 
   gulp.task('preview', ['compile', 'webserver'] , function() {
-    gulp.watch('assets/less/**/*.less', ['less']);
+    gulp.watch('assets/scripts/js/app/**/*.js', ['concat']);
+    gulp.watch('assets/styles/less/**/*.less', ['less']);
     gulp.watch('posts/text/**/*.md', ['json']);
   });
 
   gulp.task('default', ['webserver'] , function() {
-    gulp.watch('assets/less/**/*.less', ['less']);
+    gulp.watch('assets/scripts/js/app/**/*.js', ['concat']);
+    gulp.watch('assets/styles/less/**/*.less', ['less']);
     gulp.watch('posts/text/**/*.md', ['json']);
   });
 

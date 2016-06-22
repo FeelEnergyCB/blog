@@ -1,0 +1,9 @@
+<div class="article__item" ng-repeat="post in main.postsList">
+  <p>
+    <time>{{post.date}}</time>
+  </p>
+  <h1><a href="#/{{post.path}}" ui-sref="post({ postPath: post.path })">{{post.header}}</a></h1>
+  <p>
+    {{post.preview}} <a href="#/{{post.path}}" ui-sref="post({ postPath: post.path })">read more</a>
+  </p>
+</div>

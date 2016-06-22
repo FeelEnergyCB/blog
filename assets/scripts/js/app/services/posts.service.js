@@ -14,7 +14,7 @@
       function getPosts() {
         var req = {
           method: 'GET',
-          url: 'assets/json/data.json',
+          url: 'assets/data/data.json',
           cache: true,
           headers: {
             'Access-Control-Allow-Origin': '*'
