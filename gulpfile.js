@@ -121,12 +121,12 @@ var remote = 'https://github.com/MikitaLisavets/MinimalistBlog.git',
   });
 
   gulp.task('add', ['json'], function(){
-    return gulp.src('./')
+    gulp.src('./')
       .pipe(git.add({args: '--all'}));
   });
 
   gulp.task('commit', ['add'], function(){
-    return gulp.src('./')
+    gulp.src('./')
       .pipe(git.commit('Update blog'))
       .on('error', function (err) {
       });
