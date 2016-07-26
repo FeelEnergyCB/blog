@@ -17,24 +17,24 @@
 </ul>
 <h3>&#x41D;&#x430;&#x441;&#x442;&#x440;&#x43E;&#x439;&#x43A;&#x430; &#x441;&#x435;&#x442;&#x43A;&#x438;</h3>
 <p>&#x414;&#x43B;&#x44F; &#x43F;&#x440;&#x438;&#x43C;&#x435;&#x440;&#x430; &#x441;&#x43E;&#x437;&#x434;&#x430;&#x434;&#x438;&#x43C; &#x441;&#x435;&#x442;&#x43A;&#x443;, &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x44F; &#x432;&#x441;&#x435; &#x435;&#x434;&#x438;&#x43D;&#x438;&#x446;&#x44B; &#x438;&#x437;&#x43C;&#x435;&#x440;&#x435;&#x43D;&#x438;&#x439;, &#x43F;&#x435;&#x440;&#x435;&#x447;&#x438;&#x441;&#x43B;&#x435;&#x43D;&#x43D;&#x44B;&#x435; &#x440;&#x430;&#x43D;&#x435;&#x435; &#x432; &#x442;&#x43E;&#x43C; &#x436;&#x435; &#x43F;&#x43E;&#x440;&#x44F;&#x434;&#x43A;&#x435;.</p>
-<pre><code><span class="hljs-class">.container</span> <span class="hljs-rules">{
-  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> grid</span></span>;
-  <span class="hljs-rule"><span class="hljs-attribute">grid-template-columns</span>:<span class="hljs-value"> <span class="hljs-number">100px</span> <span class="hljs-number">1</span>fr min-content max-content <span class="hljs-function">minmax</span>(min-content, <span class="hljs-number">1</span>fr) auto</span></span>;
-}</span>
+<pre><code><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">1</span>fr min-content max-content <span class="hljs-built_in">minmax</span>(min-content, <span class="hljs-number">1</span>fr) auto;
+}
 </code></pre>
 <iframe src="http://jsbin.com/jihizor/10/edit?output" heigth="100"></iframe>
 <p>&#x422;&#x430;&#x43A; &#x436;&#x435; &#x43C;&#x43E;&#x436;&#x43D;&#x43E; &#x441;&#x440;&#x430;&#x437;&#x443; &#x43E;&#x431;&#x44A;&#x44F;&#x432;&#x438;&#x442;&#x44C; &#x432;&#x441;&#x435; &#x43E;&#x431;&#x43B;&#x430;&#x441;&#x442;&#x438; &#x441;&#x435;&#x442;&#x43A;&#x438; &#x438; &#x434;&#x430;&#x442;&#x44C; &#x43A;&#x430;&#x436;&#x434;&#x43E;&#x439; &#x438;&#x437; &#x43D;&#x438;&#x445; &#x438;&#x434;&#x435;&#x43D;&#x442;&#x438;&#x444;&#x438;&#x43A;&#x430;&#x442;&#x43E;&#x440;, &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x43E;&#x43C; <strong>grid-template-areas</strong>.<br>
 &#x423; &#x434;&#x43E;&#x447;&#x435;&#x440;&#x43D;&#x438;&#x445; &#x44D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x441;&#x435;&#x442;&#x43A;&#x438; &#x43F;&#x440;&#x438;&#x441;&#x432;&#x430;&#x438;&#x432;&#x430;&#x43D;&#x438;&#x435; &#x438;&#x434;&#x435;&#x43D;&#x442;&#x438;&#x444;&#x438;&#x43A;&#x430;&#x442;&#x43E;&#x440;&#x430; &#x43F;&#x440;&#x43E;&#x438;&#x441;&#x445;&#x43E;&#x434;&#x438;&#x442; &#x441; &#x43F;&#x43E;&#x43C;&#x43E;&#x449;&#x44C;&#x44E; &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x430; <strong>grid-area</strong>.</p>
-<pre><code><span class="hljs-class">.container</span> <span class="hljs-rules">{
-  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> grid</span></span>;
-  <span class="hljs-rule"><span class="hljs-attribute">grid-template-columns</span>:<span class="hljs-value"> auto <span class="hljs-function">minmax</span>(min-content, <span class="hljs-number">1</span>fr)</span></span>;
-  <span class="hljs-rule"><span class="hljs-attribute">grid-template-rows</span>:<span class="hljs-value"> auto <span class="hljs-function">minmax</span>(min-content, <span class="hljs-number">1</span>fr) <span class="hljs-function">minmax</span>(min-content, <span class="hljs-number">2</span>fr) auto</span></span>;
-  <span class="hljs-rule"><span class="hljs-attribute">grid-template-areas</span>:<span class="hljs-value"> <span class="hljs-string">&quot;title stats&quot;</span>
+<pre><code><span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">grid-template-columns</span>: auto <span class="hljs-built_in">minmax</span>(min-content, <span class="hljs-number">1</span>fr);
+  <span class="hljs-attribute">grid-template-rows</span>: auto <span class="hljs-built_in">minmax</span>(min-content, <span class="hljs-number">1</span>fr) <span class="hljs-built_in">minmax</span>(min-content, <span class="hljs-number">2</span>fr) auto;
+  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">&quot;title stats&quot;</span>
                        <span class="hljs-string">&quot;score stats&quot;</span>
                        <span class="hljs-string">&quot;board board&quot;</span>
                        <span class="hljs-string">&quot;board board&quot;</span>
-                       <span class="hljs-string">&quot;ctrls ctrls&quot;</span></span></span>;
-}</span>
+                       <span class="hljs-string">&quot;ctrls ctrls&quot;</span>;
+}
 </code></pre>
 <iframe src="http://jsbin.com/jihizor/12/edit?output" heigth="150"></iframe>
 <h3>&#x41E;&#x431;&#x43B;&#x430;&#x441;&#x442;&#x438; &#x441;&#x435;&#x442;&#x43A;&#x438;</h3>
@@ -43,8 +43,8 @@
 <li>&#x43A;&#x430;&#x43A; &#x43E;&#x43F;&#x438;&#x441;&#x44B;&#x432;&#x430;&#x43B;&#x43E;&#x441;&#x44C; &#x432;&#x44B;&#x448;&#x435;, &#x435;&#x441;&#x43B;&#x438; &#x443; grid &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x439;&#x43D;&#x435;&#x440;&#x430; &#x43E;&#x43F;&#x440;&#x435;&#x434;&#x435;&#x43B;&#x435;&#x43D;&#x43D;&#x43E; &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x43E; <strong>grid-template-areas</strong>, &#x442;&#x43E; &#x43A;&#x430;&#x436;&#x434;&#x44B;&#x439; &#x438;&#x437; &#x434;&#x43E;&#x447;&#x435;&#x440;&#x43D;&#x438;&#x445; &#x44D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x43E;&#x432; &#x43C;&#x43E;&#x436;&#x435;&#x442; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x43E;&#x432;&#x430;&#x442;&#x44C; &#x438;&#x434;&#x435;&#x43D;&#x442;&#x438;&#x444;&#x438;&#x43A;&#x430;&#x442;&#x43E;&#x440; &#x434;&#x43B;&#x44F; &#x441;&#x432;&#x43E;&#x435;&#x433;&#x43E; &#x43F;&#x43E;&#x437;&#x438;&#x446;&#x438;&#x43E;&#x43D;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F;, &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x43E;&#x43C; <strong>grid-area</strong>;</li>
 <li>&#x442;&#x430;&#x43A; &#x436;&#x435;, &#x43B;&#x44E;&#x431;&#x43E;&#x439; &#x434;&#x43E;&#x447;&#x435;&#x440;&#x43D;&#x438;&#x439; &#x44D;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442; &#x43C;&#x43E;&#x436;&#x43D;&#x43E; &#x43F;&#x43E;&#x43C;&#x435;&#x441;&#x442;&#x438;&#x442;&#x44C; &#x432; &#x43B;&#x44E;&#x431;&#x443;&#x44E; &#x44F;&#x447;&#x435;&#x439;&#x43A;&#x443; &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x439;&#x43D;&#x435;&#x440;&#x430; &#x441;&#x432;&#x43E;&#x439;&#x441;&#x442;&#x432;&#x430;&#x43C;&#x438; <strong>grid-column</strong> &#x438; <strong>grid-row</strong>, &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x44B;&#x435; &#x43F;&#x440;&#x438;&#x43D;&#x438;&#x43C;&#x430;&#x44E;&#x442; &#x43D;&#x43E;&#x43C;&#x435;&#x440; &#x44F;&#x447;&#x435;&#x439;&#x43A;&#x438; &#x438; &#x441;&#x442;&#x440;&#x43E;&#x43A;&#x438; &#x441;&#x43E;&#x43E;&#x442;&#x432;&#x435;&#x442;&#x441;&#x442;&#x432;&#x435;&#x43D;&#x43D;&#x43E;. &#x415;&#x441;&#x43B;&#x438; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x43E;&#x434;&#x438;&#x43C;&#x43E; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x438;&#x442;&#x44C; &#x43D;&#x435;&#x441;&#x43A;&#x43E;&#x43B;&#x44C;&#x43A;&#x43E; &#x44F;&#x447;&#x435;&#x435;&#x43A; &#x438;&#x43B;&#x438; &#x441;&#x442;&#x440;&#x43E;&#x43A;, &#x442;&#x43E; &#x438;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x442;&#x441;&#x44F; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x446;&#x438;&#x44F;:</li>
 </ul>
-<pre><code>  <span class="hljs-rule"><span class="hljs-attribute">grid-column</span>:<span class="hljs-value"> <span class="hljs-number">1</span> / span <span class="hljs-number">2</span></span></span>;
-  <span class="hljs-rule"><span class="hljs-attribute">grid-row</span>:<span class="hljs-value"> <span class="hljs-number">1</span> / span <span class="hljs-number">2</span></span></span>;
+<pre><code>  <span class="hljs-attribute">grid-column</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">2</span>;
+  <span class="hljs-attribute">grid-row</span>: <span class="hljs-number">1</span> / span <span class="hljs-number">2</span>;
 </code></pre>
 <p>&#x433;&#x434;&#x435; &apos;2&apos; - &#x43A;&#x43E;&#x43B;&#x438;&#x447;&#x435;&#x441;&#x442;&#x432;&#x43E; &#x43E;&#x431;&#x44A;&#x435;&#x434;&#x438;&#x43D;&#x44F;&#x435;&#x43C;&#x44B;&#x445; &#x44F;&#x447;&#x435;&#x435;&#x43A; &#x438;&#x43B;&#x438; &#x441;&#x442;&#x440;&#x43E;&#x43A; &#x441;&#x43E;&#x43E;&#x442;&#x432;&#x435;&#x442;&#x441;&#x442;&#x432;&#x435;&#x43D;&#x43D;&#x43E;.</p>
 <ul>

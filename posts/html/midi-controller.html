@@ -31,42 +31,42 @@
 <h2>&#x41F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x43D;&#x43E;&#x435; &#x43E;&#x431;&#x435;&#x441;&#x43F;&#x435;&#x447;&#x435;&#x43D;&#x438;&#x435;</h2>
 <p>&#x414;&#x43B;&#x44F; &#x43F;&#x440;&#x43E;&#x433;&#x440;&#x430;&#x43C;&#x43C;&#x438;&#x440;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x44F; arduino uno &#x432;&#x43E;&#x441;&#x43F;&#x43E;&#x43B;&#x44C;&#x437;&#x443;&#x435;&#x43C;&#x441;&#x44F; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x439; &#x441;&#x440;&#x435;&#x434;&#x43E;&#x439; &#x440;&#x430;&#x437;&#x440;&#x430;&#x431;&#x43E;&#x442;&#x43A;&#x438; Arduino IDE.</p>
 <h3>&#x41A;&#x43E;&#x434;</h3>
-<pre><code><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;MIDI.h&gt;</span></span>
+<pre><code><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> &lt;MIDI.h&gt;</span>
 
-MIDI_CREATE_DEFAULT_INSTANCE();
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> BTNS_COUNT <span class="hljs-number">10</span></span>
-<span class="hljs-preprocessor">#<span class="hljs-keyword">define</span> SHIFT_NOTES <span class="hljs-number">36</span></span>
-<span class="hljs-keyword">int</span> momentaryBtns[BTNS_COUNT] = {<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, A0, A1, A2, A3, A4};
-boolean momentaryState[BTNS_COUNT];
+MIDI_CREATE_DEFAULT_INSTANCE()<span class="hljs-comment">;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BTNS_COUNT <span class="hljs-number">10</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SHIFT_NOTES <span class="hljs-number">36</span></span>
+<span class="hljs-keyword">int</span> momentaryBtns[BTNS_COUNT] = {<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, A0, A1, A2, A3, A4}<span class="hljs-comment">;</span>
+boolean momentaryState[BTNS_COUNT]<span class="hljs-comment">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; BTNS_COUNT; i++) {
-      pinMode(momentaryBtns[i], INPUT_PULLUP);
-    };
-    MIDI.begin(<span class="hljs-number">4</span>);
+void setup() {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt; BTNS_COUNT; i++) {</span>
+      pinMode(momentaryBtns[i], INPUT_PULLUP)<span class="hljs-comment">;</span>
+    }<span class="hljs-comment">;</span>
+    MIDI.begin(<span class="hljs-number">4</span>)<span class="hljs-comment">;</span>
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{  
-  readButtons();
-  delay(<span class="hljs-number">20</span>);
+void <span class="hljs-keyword">loop</span>() {  
+  readButtons()<span class="hljs-comment">;</span>
+  delay(<span class="hljs-number">20</span>)<span class="hljs-comment">;</span>
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">readButtons</span><span class="hljs-params">()</span> </span>{
-  <span class="hljs-keyword">int</span> momentary, toggle;
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; BTNS_COUNT; i++) {
-    momentary = digitalRead(momentaryBtns[i]);
+void readButtons() {
+  <span class="hljs-keyword">int</span> momentary, toggle<span class="hljs-comment">;</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span><span class="hljs-comment">; i &lt; BTNS_COUNT; i++) {</span>
+    momentary = digitalRead(momentaryBtns[i])<span class="hljs-comment">;</span>
     <span class="hljs-keyword">if</span> (momentary == <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">if</span> (momentaryState[i] != <span class="hljs-literal">true</span>) {
-        MIDI.sendNoteOn(SHIFT_NOTES + i,<span class="hljs-number">127</span>,<span class="hljs-number">1</span>);
-        momentaryState[i] = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">if</span> (momentaryState[i] != true) {
+        MIDI.sendNoteOn(SHIFT_NOTES + i,<span class="hljs-number">127</span>,<span class="hljs-number">1</span>)<span class="hljs-comment">;</span>
+        momentaryState[i] = true<span class="hljs-comment">;</span>
       }
     } <span class="hljs-keyword">else</span> {
-      <span class="hljs-keyword">if</span> (momentaryState[i] == <span class="hljs-literal">true</span>) {
-        MIDI.sendNoteOff(SHIFT_NOTES + i,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>);
+      <span class="hljs-keyword">if</span> (momentaryState[i] == true) {
+        MIDI.sendNoteOff(SHIFT_NOTES + i,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)<span class="hljs-comment">;</span>
       }
-      momentaryState[i] = <span class="hljs-literal">false</span>;
+      momentaryState[i] = false<span class="hljs-comment">;</span>
     }
-  };
+  }<span class="hljs-comment">;</span>
 }
 </code></pre>
 <p>&#x41F;&#x43E;&#x441;&#x43B;&#x435; &#x437;&#x430;&#x43B;&#x438;&#x432;&#x43A;&#x438; &#x43A;&#x43E;&#x434;&#x430; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x43E;&#x434;&#x438;&#x43C;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x43F;&#x440;&#x43E;&#x448;&#x438;&#x442;&#x44C; arduino. &#x418;&#x437; &#x440;&#x435;&#x43F;&#x43E;&#x437;&#x438;&#x442;&#x43E;&#x440;&#x438;&#x44F; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x430; <a href="https://github.com/ddiakopoulos/hiduino/tree/master/compiled_firmwares">hiduino</a> &#x43D;&#x443;&#x436;&#x43D;&#x43E; &#x441;&#x43A;&#x430;&#x447;&#x430;&#x442;&#x44C; 2 &#x43F;&#x440;&#x43E;&#x448;&#x438;&#x432;&#x43A;&#x438;: arduino_midi.hex &#x438; usbserial_uno_16u2.hex (&#x438;&#x43B;&#x438; usbserial_uno_8u2.hex &#x432; &#x437;&#x430;&#x432;&#x438;&#x441;&#x438;&#x43C;&#x43E;&#x441;&#x442;&#x438; &#x43E;&#x442; &#x447;&#x438;&#x43F;&#x430;).</p>
@@ -74,9 +74,9 @@ boolean momentaryState[BTNS_COUNT];
 <p><img src="posts/images/midi/8.jpg" alt=""></p>
 <pre><code>sudo dfu-programmer atmega16u2 erase
 
-sudo dfu-programmer atmega16u2 flash arduino_midi<span class="hljs-class">.hex</span>
+sudo dfu-programmer atmega16u2 flash arduino_midi<span class="hljs-selector-class">.hex</span>
 &#x438;&#x43B;&#x438;
-sudo dfu-programmer atmega16u2 flash usbserial_uno_16u2<span class="hljs-class">.hex</span> --suppress-bootloader-mem
+sudo dfu-programmer atmega16u2 flash usbserial_uno_16u2<span class="hljs-selector-class">.hex</span> --suppress-bootloader-mem
 <span class="hljs-comment">// &#x434;&#x43B;&#x44F; &#x432;&#x43E;&#x437;&#x432;&#x440;&#x430;&#x442;&#x430; &#x43A; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x439; &#x43F;&#x440;&#x43E;&#x448;&#x438;&#x432;&#x43A;&#x435;</span>
 
 sudo dfu-programmer atmega16u2 reset
