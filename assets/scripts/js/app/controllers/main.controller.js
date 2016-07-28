@@ -35,7 +35,7 @@
 
         function scrollTo(pos) {
           var pos = pos || 0;
-          $('html, body').animate({scrollTop : pos}, 200)
+          $('html, body').animate({scrollTop : pos}, 400)
         }
 
           // $state.go('post', {postPath: post.path})s
